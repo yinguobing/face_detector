@@ -185,7 +185,7 @@ class Detector(object):
             color: a tuple of (B, G, R) 8bit int.
 
         """
-        for box in boxes:
+        for box, score in zip(boxes, scores):
             y0, x0, y1, x1 = [int(b) for b in box]
             cv2.rectangle(image, (x0, y0), (x1, y1), color, 2)
             cv2.putText(image, "Face:{:.2f}".format(score),
